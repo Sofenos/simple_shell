@@ -7,12 +7,14 @@
  */
 
 
-char* find_bin_path(char* bin_name) {
+char* find_bin_path(char* bin_name)
+{
     char* path = getenv("PATH");
     char* token = strtok(path, ":");
     struct stat sb;
 
-    while (token != NULL) {
+    while (token != NULL)
+      {
         char bin_path[BUFFER_SIZE];
         snprintf(bin_path, BUFFER_SIZE, "%s/%s", token, bin_name);
 
