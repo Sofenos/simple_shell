@@ -6,11 +6,11 @@
  * Return: Always 0.
  */
 
-int main(int argc, char* argv[])
+int main(int argc, char *argv[])
 {
-    const char* program = argv[0];
+    const char *program = argv[0];
     char command[BUFFER_SIZE];
-    char* args[BUFFER_SIZE];
+    char *args[BUFFER_SIZE];
 
     while (1)
 {

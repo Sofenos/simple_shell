@@ -7,14 +7,14 @@
  */
 
 
-void execute_command(char** args)
+void execute_command(char **args)
 {
     if (strcmp(args[0], "cd") == 0)
       {
-        // Commande "cd"
+        
         if (args[1] == NULL)
 	  {
-            // Pas de répertoire spécifié, aller au répertoire personnel de l'utilisateur
+        
             chdir(getenv("HOME"));
         }
 	else
@@ -26,13 +26,12 @@ void execute_command(char** args)
     }
     else if (strcmp(args[0], "exit") == 0)
       {
-        // Commande "exit", quitter le programme
+        
         exit(EXIT_SUCCESS);
     }
     else if (strcmp(args[0], "env") == 0)
       {
-        // Commande "env", afficher les variables d'environnement
-        char** env_var = environ;
+        char **env_var = environ;
         while (*env_var)
 	  {
             printf("%s\n", *env_var);
@@ -41,24 +40,21 @@ void execute_command(char** args)
     }
     else
       {
-        char* bin_path = find_bin_path(args[0]);
+        char *bin_path = find_bin_path(args[0]);
         if (bin_path != NULL)
 	  {
             pid_t pid = fork();
             if (pid == 0)
 	      {
-                // Processus enfant
                 execvp(args[0], args);
                 exit(EXIT_FAILURE);
             }
 	    else if (pid < 0)
 	      {
-                // Erreur lors de la création du processus enfant
-                printf("Error creating child process\n");
+               printf("Error creating child process\n");
             }
 	    else
 	      {
-                // Processus parent
                 wait(NULL);
             }
             free(bin_path);

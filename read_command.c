@@ -6,9 +6,11 @@
  * Return: void
  */
 
-void read_command(char* command) {
+void read_command(char *command)
+{
     printf("$> ");
-    if (fgets(command, BUFFER_SIZE, stdin) == NULL) {
+    if (fgets(command, BUFFER_SIZE, stdin) == NULL)
+      {
         printf("\n");
         exit(EXIT_SUCCESS);
     }
