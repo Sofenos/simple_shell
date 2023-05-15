@@ -17,10 +17,9 @@ while (token != NULL)
 {
 char bin_path[BUFFER_SIZE];
 snprintf(bin_path, BUFFER_SIZE, "%s/%s", token, bin_name);
-
 if (stat(bin_path, &sb) == 0 && sb.st_mode & S_IXUSR)
-return strdup(bin_path);
+return (strdup(bin_path));
 token = strtok(NULL, ":");
 }
-return NULL;
+return (NULL);
 }
