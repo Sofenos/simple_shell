@@ -11,6 +11,7 @@
 #include <errno.h>
 
 #define BUFFER_SIZE 1024
+extern char **environ;
 
 void read_command(char *command);
 void parse_command(char *command, char **args);

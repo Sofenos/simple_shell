@@ -1,5 +1,4 @@
 #include "shell.h"
-extern char **environ;
 
 /**
  * cd_command - Change directory command
