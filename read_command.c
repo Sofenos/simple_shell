@@ -8,11 +8,12 @@
  */
 void read_command(char *command)
 {
-printf("$> ");
-if (fgets(command, BUFFER_SIZE, stdin) == NULL)
-{
-printf("\n");
-exit(EXIT_SUCCESS);
+	printf("$> ");
+	if (fgets(command, BUFFER_SIZE, stdin) == NULL)
+	{
+		printf("\n");
+		exit(EXIT_SUCCESS);
+	}
+	command[strcspn(command, "\n")] = '\0';
 }
-command[strcspn(command, "\n")] = '\0';
-}
+
