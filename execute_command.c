@@ -1,5 +1,5 @@
 #include "shell.h"
-static char **environ;
+extern char **environ;
 
 /**
  * cd_command - Change directory command
@@ -57,6 +57,7 @@ void execute_command(char **args)
 {
 if (strcmp(args[0], "cd") == 0)
 {
+cd_command(args);
 }
 else if (strcmp(args[0], "exit") == 0)
 {
