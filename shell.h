@@ -15,8 +15,8 @@
 void read_command(char *command);
 void parse_command(char *command, char **args);
 void execute_command(char **args);
-char *find_bin_path(const char *bin_name);
+char *find_bin_path(const char *command);
 void print_error(const char *program, const char *message);
-int main(int argc, char *argv[]);
+int main(void);
 
 #endif

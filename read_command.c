@@ -2,10 +2,10 @@
 
 /**
  * read_command - Read user input
+ * @command: Buffer to store the user input
  *
  * Return: void
  */
-
 void read_command(char *command)
 {
 printf("$> ");

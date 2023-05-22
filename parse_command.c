@@ -1,11 +1,12 @@
 #include "shell.h"
 
 /**
- * parse_command -
+ * parse_command - Parse a command into arguments
+ * @command: The command string
+ * @args: An array of arguments
  *
  * Return: Void
  */
-
 void parse_command(char *command, char **args)
 {
 char *token = strtok(command, " ");

@@ -1,20 +1,16 @@
 #include "shell.h"
+static char **environ;
 
 /**
- * execute_command -
+ * cd_command - Change directory command
+ * @args: The command arguments
  *
  * Return: void
  */
-
-
-void execute_command(char **args)
+void cd_command(char **args)
 {
-if (strcmp(args[0], "cd") == 0)
-{
-
 if (args[1] == NULL)
 {
-
 chdir(getenv("HOME"));
 }
 else
@@ -25,43 +21,68 @@ printf("Error navigating to specified directory\n");
 }
 }
 }
-else if (strcmp(args[0], "exit") == 0)
+
+/**
+ * exit_command - Exit command
+ *
+ * Return: void
+ */
+void exit_command(void)
 {
 exit(EXIT_SUCCESS);
 }
-else if (strcmp(args[0], "env") == 0)
+
+/**
+ * env_command - Environment command
+ *
+ * Return: void
+ */
+void env_command(void)
 {
 char **env_var = environ;
-while (*env_var)
+while (*env_var != NULL)
 {
 printf("%s\n", *env_var);
 env_var++;
 }
 }
-else
+
+/**
+ * execute_command - Execute a command
+ * @args: The command arguments
+ *
+ * Return: void
+ */
+void execute_command(char **args)
 {
-char *bin_path = find_bin_path(args[0]);
-if (bin_path != NULL)
+if (strcmp(args[0], "cd") == 0)
+{
+}
+else if (strcmp(args[0], "exit") == 0)
+{
+exit_command();
+}
+else if (strcmp(args[0], "env") == 0)
+{
+env_command();
+}
+else
 {
 pid_t pid = fork();
 if (pid == 0)
 {
 execvp(args[0], args);
+fprintf(stderr, "%s: Command not found\n", args[0]);
 exit(EXIT_FAILURE);
 }
 else if (pid < 0)
 {
-printf("Error creating child process\n");
+fprintf(stderr, "Fork error\n");
 }
 else
 {
-wait(NULL);
-}
-free(bin_path);
-}
-else
-{
-printf("Command not found: %s\n", args[0]);
+int status;
+waitpid(pid, &status, 0);
 }
 }
 }
