@@ -8,7 +8,7 @@
  */
 void read_command(char *command)
 {
-	printf("$> ");
+	printf("$>");
 	if (fgets(command, BUFFER_SIZE, stdin) == NULL)
 	{
 		printf("\n");
