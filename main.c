@@ -7,16 +7,15 @@
  */
 int main(void)
 {
-char command[BUFFER_SIZE];
-char *args[BUFFER_SIZE];
-while (1)
-{
-read_command(command);
-parse_command(command, args);
-if (args[0] != NULL)
-{
-execute_command(args);
-}
-}
-return (0);
+    char command[BUFFER_SIZE];
+    char *args[MAX_ARGS];
+ 
+    while (1)
+    {
+        read_command(command);
+	parse_command(command, args);
+	execute_command(command);
+    }
+
+    return (0);
 }

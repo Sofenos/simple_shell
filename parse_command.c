@@ -5,9 +5,9 @@
  * @command: The command string
  * @args: An array of arguments
  *
- * Return: void
+ * Return: i
  */
-void parse_command(char *command, char **args)
+int parse_command(char *command, char **args)
 {
 	char *token = strtok(command, " ");
 	int i = 0;
@@ -20,5 +20,6 @@ void parse_command(char *command, char **args)
 	}
 
 	args[i] = NULL;
+	return (i);
 }
 
