@@ -15,6 +15,8 @@ int main(void)
         read_command(command);
 	parse_command(command, args);
 	execute_command(command);
+	if (feof(stdin))
+	  break;
     }
 
     return (0);
