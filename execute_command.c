@@ -42,8 +42,9 @@ void env_command(void)
 char **env_var = environ;
 	while (*env_var != NULL)
 	{
-		printf("%s\n", *env_var);
-		env_var++;
+	  if (strncmp(*env_var, "_=", 2) != 0)
+	    printf("%s\n", *env_var);
+	  env_var++;
 	}
 }
 
