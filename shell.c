@@ -62,7 +62,7 @@ int main(int ac __attribute__((unused)), char **av, char **env)
 	int *errval = malloc(sizeof(int)), read, error, lines = 1;
 
 	*errval = 0;
-	line = lineer(size);
+	line = liner(size);
 	if (!line)
 		exit(-1);
 	while (1)
@@ -81,7 +81,7 @@ int main(int ac __attribute__((unused)), char **av, char **env)
 			free(spl);
 			continue;
 		}
-		switch (shand(line, spl, lines, env, av, errval))
+		switch (hand(line, spl, lines, env, av, errval))
 		{
 			case 0:
 				error = *errval;
@@ -99,7 +99,7 @@ int main(int ac __attribute__((unused)), char **av, char **env)
 }
 
 /**
- *shand - fonction qui exécute une commande
+ *hand - fonction qui exécute une commande
  *basée sur la ligne d'entrée qui lui est passée
  *@line: pointeur vers une chaîne de caractères contenant l'entrée
  *@split: mots individuels de l'entrée
@@ -109,7 +109,7 @@ int main(int ac __attribute__((unused)), char **av, char **env)
  *@err: statut de sortie
  *Return: une valeur entière
 */
-int shand(char *line, char **split, int lines, char **env, char **av, int *err)
+int hand(char *line, char **split, int lines, char **env, char **av, int *err)
 {
 	char *cmd;
 	int x;
@@ -128,12 +128,12 @@ int shand(char *line, char **split, int lines, char **env, char **av, int *err)
 			write(1, env[x], _strlen(env[x]));
 			write(1, "\n", 1);
 		}
-		return (cleanup(split));
+		return (clean(split));
 	}
 	if (stat(split[0], &st) == 0)
 	{
 		*err = execute(split[0], split, av[0]);
-		return (cleanup(split));
+		return (clean(split));
 	}
 	cmd = pathox(env, split[0]);
 	if (!cmd)
@@ -147,7 +147,7 @@ int shand(char *line, char **split, int lines, char **env, char **av, int *err)
 		*err = errno;
 		return (0);
 	}
-	cleanup(split);
+	clean(split);
 	free(cmd);
 	return (10);
 }

@@ -21,11 +21,11 @@ void error(int lines, char *split, char **av)
 
 
 /**
- *lineer - création de variable d'entrée.
+ *liner - création de variable d'entrée.
  *@size: la taille du bloc mémoire à allouer.
  *Return: un pointeur vers le bloc mémoire alloué.
 */
-char *lineer(size_t size)
+char *liner(size_t size)
 {
 	char *input;
 
@@ -38,11 +38,11 @@ char *lineer(size_t size)
 
 
 /**
- *cleanup - efface un tableau de caractères.
+ *clean - efface un tableau de caractères.
  *@str: pointeur à nettoyer.
  *Return: 1
 */
-int cleanup(char **str)
+int clean(char **str)
 {
 	int i;
 

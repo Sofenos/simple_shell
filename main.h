@@ -12,10 +12,10 @@
 #include <sys/wait.h>
 
 int execute(char *command, char **arguments, char *av);
-int shand(char *, char **, int, char **, char **, int *);
+int hand(char *, char **, int, char **, char **, int *);
 void error(int lines, char *split, char **av);
-char *lineer(size_t size);
-int cleanup(char **str);
+char *liner(size_t size);
+int clean(char **str);
 int _strlen(char *str);
 char *_strdup(char *str);
 char **_splitox(char *str, char *delim);
