@@ -18,11 +18,11 @@ char *liner(size_t size);
 int clean(char **str);
 int _strlen(char *str);
 char *_strdup(char *str);
-char **_splitox(char *str, char *delim);
+char **_splitx(char *str, char *delim);
 int _strcmp(char *origin, char *comp);
 char *_numtostr(int n);
 char *envi(char *name, char **environ);
-char *pathox(char **environ, char *input);
+char *pathx(char **environ, char *input);
 
 
 #endif

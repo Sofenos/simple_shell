@@ -75,7 +75,7 @@ int main(int ac __attribute__((unused)), char **av, char **env)
 		if (read == 1)
 			continue;
 		line[read - 1] = ' ';
-		spl = _splitox(line, " ");
+		spl = _splitx(line, " ");
 		if (!*spl)
 		{
 			free(spl);
@@ -135,7 +135,7 @@ int hand(char *line, char **split, int lines, char **env, char **av, int *err)
 		*err = execute(split[0], split, av[0]);
 		return (clean(split));
 	}
-	cmd = pathox(env, split[0]);
+	cmd = pathx(env, split[0]);
 	if (!cmd)
 	{
 		*err = 127;

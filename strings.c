@@ -48,12 +48,12 @@ char *_strdup(char *str)
 }
 
 /**
- *_splitox - divise une chaîne en tableaux en fonction du délimiteur
+ *_splitx - divise une chaîne en tableaux en fonction du délimiteur
  *@str: chaîne de caractères
  *@delim: délimiteur
  *Return: un pointeur vers des caractères
 */
-char **_splitox(char *str, char *delim)
+char **_splitx(char *str, char *delim)
 {
 	int a, b, characters, lignes = 1;
 	char **split, *token, *strup;

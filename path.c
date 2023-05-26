@@ -26,13 +26,13 @@ char *envi(char *name, char **environ)
 }
 
 /**
- *pathox - recherche un fichier d'entrée spécifié
+ *pathx - recherche un fichier d'entrée spécifié
  *dans les répertoires répertoriés dans la variable d'environnement "PATH"
  *@environ: pointeur vers un tableau de chaînes de caractères
  *@input: paramètre pointant vers une chaîne de caractères
  *Return: le chemin complet du fichier s'il est trouvé, sinon 'NULL'
 */
-char *pathox(char **environ, char *input)
+char *pathx(char **environ, char *input)
 {
 	char *token, *delim, *cpy, *pathEnv, *command;
 	struct stat st;
