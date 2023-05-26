@@ -1,13 +1,13 @@
 #include "main.h"
 
 /**
- * envi - searches for an environment variable with
- * a given name in a null-terminated arrays of str
- * @name: name of env variable
- * @environ: environment
- * Return: search for a specifi env
- */
-
+ *envi - recherche une variable d'environnement avec
+ *un nom donné dans un tableau de chaînes de caractères
+ *terminé par un pointeur NULL
+ *@name: nom de la variable d'environnement
+ *@environ: environnement
+ *Return: la valeur de la variable d'environnement recherchée
+*/
 char *envi(char *name, char **environ)
 {
 	int x, nameLength = strlen(name);
@@ -26,13 +26,12 @@ char *envi(char *name, char **environ)
 }
 
 /**
- * pathox - search for a specified input file
- * in the directories listed in the "PATH" env
- * @environ: pointer to an array of strings
- * @input: paramter is a pointer to a string
- * Return: the full path if found or 'NULL' otherwise
- */
-
+ *pathox - recherche un fichier d'entrée spécifié
+ *dans les répertoires répertoriés dans la variable d'environnement "PATH"
+ *@environ: pointeur vers un tableau de chaînes de caractères
+ *@input: paramètre pointant vers une chaîne de caractères
+ *Return: le chemin complet du fichier s'il est trouvé, sinon 'NULL'
+*/
 char *pathox(char **environ, char *input)
 {
 	char *token, *delim, *cpy, *pathEnv, *command;

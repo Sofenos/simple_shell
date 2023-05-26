@@ -1,14 +1,13 @@
 #include "main.h"
 
 /**
- * execute - execute a command with the specified arg
- * in a child process
- * @command: pointer to a constant character
- * @arguments: pointer to an array of const character string
- * @av: name of the program
- * Return: integer value
+ *execute - exécute une commande avec les arguments spécifiés
+ *dans un processus enfant
+ *@command: pointeur vers une chaîne de caractères constante
+ *@arguments: pointeur vers un tableau de chaînes de caractères constantes
+ *@av: nom du programme
+ *Return: une valeur entière
 */
-
 int execute(char *command, char **arguments, char *av)
 {
 	int status;
@@ -49,14 +48,13 @@ int execute(char *command, char **arguments, char *av)
 }
 
 /**
- * main - Entry pointe of C program that implements a basic shell
- * The main() function in the program takes three parameters.
- * @ac: An integer represents the number of arguments passed to the program.
- * @av: representing the command-line arguments passed to the program.
- * @env: representing the environment variables passed to the program.
- * Return: exit status of the shell.
+ *main - Point d'entrée du programme C qui implémente un shell basique
+ *La fonction main() du programme prend trois paramètres.
+ *@ac: Un entier représentant le nombre d'arguments passés au programme.
+ *@av: Représente les arguments de ligne de commande passés au programme.
+ *@env: Représente les variables d'environnement passées au programme.
+ *Return: le statut de sortie du shell.
 */
-
 int main(int ac __attribute__((unused)), char **av, char **env)
 {
 	char *line, **spl;
@@ -70,7 +68,7 @@ int main(int ac __attribute__((unused)), char **av, char **env)
 	while (1)
 	{
 		if (isatty(0) == 1)
-			write(1, "simple_shell:~$", 15);
+			write(1, "simple_shell:#", 15);
 		read = getline(&line, &size, stdin);
 		if (read == -1)
 			break;
@@ -101,17 +99,16 @@ int main(int ac __attribute__((unused)), char **av, char **env)
 }
 
 /**
- * shand - function that executes a command
- * based on the input line passed to it
- * @line: pointer to char that contains input
- * @split: individual words of the input
- * @lines: line number of the input
- * @env: environment variables for the current process
- * @av: command-line arguments passed to the program
- * @err: exit status
- * Return: integer value
+ *shand - fonction qui exécute une commande
+ *basée sur la ligne d'entrée qui lui est passée
+ *@line: pointeur vers une chaîne de caractères contenant l'entrée
+ *@split: mots individuels de l'entrée
+ *@lines: numéro de ligne de l'entrée
+ *@env: variables d'environnement pour le processus en cours
+ *@av: arguments de ligne de commande passés au programme
+ *@err: statut de sortie
+ *Return: une valeur entière
 */
-
 int shand(char *line, char **split, int lines, char **env, char **av, int *err)
 {
 	char *cmd;

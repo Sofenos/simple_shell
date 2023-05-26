@@ -1,11 +1,10 @@
 #include "main.h"
 
 /**
- * _strlen - function counts length of string
- * @str: string to count
- * Return: the amount of string
- */
-
+ *_strlen - fonction qui compte la longueur d'une chaîne de caractères
+ *@str: chaîne de caractères à compter
+ *Return: la longueur de la chaîne
+*/
 int _strlen(char *str)
 {
 	int i;
@@ -18,12 +17,11 @@ int _strlen(char *str)
 }
 
 /**
- * _strdup - function that returns a pointer
- * to a newly allocated space
- * @str: string
- * Return: pointer to duplicated string
- */
-
+ *_strdup - fonction qui renvoie un pointeur
+ *vers un nouvel espace alloué
+ *@str: chaîne de caractères
+ *Return: un pointeur vers la chaîne dupliquée
+*/
 char *_strdup(char *str)
 {
 	char *dup;
@@ -50,26 +48,22 @@ char *_strdup(char *str)
 }
 
 /**
- * _splitox - devid string into arrays based on delim
- * @str: string
- * @delim: delimiter
- * Return: pointer of characters
- */
-
-
-
+ *_splitox - divise une chaîne en tableaux en fonction du délimiteur
+ *@str: chaîne de caractères
+ *@delim: délimiteur
+ *Return: un pointeur vers des caractères
+*/
 char **_splitox(char *str, char *delim)
 {
 	int a, b, characters, lignes = 1;
 	char **split, *token, *strup;
-	/* allocating memory to create a copy of string  */
+
 	strup = _strdup(str);
 	for (a = 0; strup[a]; a++)
 	{
 		if (strup[a] == delim[0] || strup[a] == delim[1])
 			lignes++;
 	}
-	/* checking if the memory allocate was successfulor not */
 	split = malloc((lignes + 1) * sizeof(char *));
 	if (!split)
 	{
@@ -77,7 +71,6 @@ char **_splitox(char *str, char *delim)
 		exit(1);
 	}
 	token = strtok(strup, delim);
-	/*tokenize a string into substring o stores it in dynam allocated mem*/
 	b = 0;
 	while (token)
 	{
@@ -103,13 +96,11 @@ char **_splitox(char *str, char *delim)
 }
 
 /**
- * _strcmp - compare 2 string
- * @s1: string
- * @s2: string
- * Return: less 0 if string is less than other & the opposite
- */
-
-
+ *_strcmp - compare deux chaînes de caractères
+ *@s1: chaîne de caractères
+ *@s2: chaîne de caractères
+ *Retourne: une valeur inférieure à 0 si la première chaîne est inférieure à la deuxième
+*/
 int _strcmp(char *s1, char *s2)
 {
 	int i;
@@ -126,11 +117,10 @@ int _strcmp(char *s1, char *s2)
 }
 
 /**
- * _numtostr - count the number of digits
- * @n: number to evaluate
- * Return: The number of digits
- */
-
+ *_numtostr - compte le nombre de chiffres
+ *@n: nombre à évaluer
+ *Retourne: le nombre de chiffres
+*/
 char *_numtostr(int n)
 {
 	int i = 0, j, number = n;
