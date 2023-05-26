@@ -13,7 +13,7 @@
 
 int execute(char *command, char **arguments, char *av);
 int shand(char *, char **, int, char **, char **, int *);
-void printerr(int lines, char *split, char **av);
+void error(int lines, char *split, char **av);
 char *lineer(size_t size);
 int cleanup(char **str);
 int _strlen(char *str);

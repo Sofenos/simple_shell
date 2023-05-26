@@ -99,7 +99,7 @@ char **_splitox(char *str, char *delim)
  *_strcmp - compare deux chaînes de caractères
  *@s1: chaîne de caractères
  *@s2: chaîne de caractères
- *Retourne: une valeur inférieure à 0 si la première chaîne est inférieure à la deuxième
+ *Return: une valeur inférieure à 0
 */
 int _strcmp(char *s1, char *s2)
 {
@@ -119,7 +119,7 @@ int _strcmp(char *s1, char *s2)
 /**
  *_numtostr - compte le nombre de chiffres
  *@n: nombre à évaluer
- *Retourne: le nombre de chiffres
+ *Return: le nombre de chiffres
 */
 char *_numtostr(int n)
 {

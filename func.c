@@ -1,13 +1,12 @@
 #include "main.h"
 
 /**
- *printerr - affiche les messages d'erreur indiquant qu'une chaîne de caractères
- *spécifiée n'a pas été trouvée.
+ *error - affiche les messages d'erreur
  *@lines: le numéro de ligne où une erreur s'est produite.
  *@split: un pointeur représentant la commande qui n'a pas été trouvée.
  *@av: un pointeur contenant les arguments de la ligne de commande.
 */
-void printerr(int lines, char *split, char **av)
+void error(int lines, char *split, char **av)
 {
 	char *strlines = _numtostr(lines);
 

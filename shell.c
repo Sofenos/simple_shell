@@ -139,7 +139,7 @@ int shand(char *line, char **split, int lines, char **env, char **av, int *err)
 	if (!cmd)
 	{
 		*err = 127;
-		printerr(lines, split[0], av);
+		error(lines, split[0], av);
 	}
 	else if (execute(cmd, split, av[0]) == -1)
 	{
